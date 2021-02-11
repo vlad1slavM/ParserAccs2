@@ -1,6 +1,6 @@
-from pyparsing import *
 import re
 import time
+
 
 class Parser:
     def __init__(self):
@@ -18,6 +18,6 @@ class Parser:
                 self.login_password[login[0]] = password[0]
         print("--- %s seconds ---" % (time.time() - start_time))
 
-parser = Parser()
 
+parser = Parser()
 print(parser.test_parser())
