@@ -4,7 +4,7 @@ from selenium.webdriver.firefox.options import Options as Options_firefox
 from termcolor import cprint
 import colorama
 import time
-
+import enum
 
 def debug_print(message, color):
     debug = False
@@ -12,14 +12,21 @@ def debug_print(message, color):
         cprint(message, color)
 
 
+class Answer(enum.Enum):
+    success = 0
+    incorrect_password = 1
+    origin_error = 2
+    captcha = 3
+
+
 class Origin_Checker:
     def __init__(self, email, password, browser_type):
         self.t = time.time()
-        if (browser_type == "Chrome"):
+        if browser_type == "Chrome":
             options = Options_chrome()
             options.add_argument("--headless")
             self.browser = webdriver.Chrome(options=options)
-        elif (browser_type == "Firefox"):
+        elif browser_type == "Firefox":
             options = Options_firefox()
             options.add_argument("--headless")
             self.browser = webdriver.Firefox(options=options)
@@ -51,22 +58,22 @@ class Origin_Checker:
         try:
             error_code = self.browser.find_element_by_xpath("//p[@class='otkinput-errormsg otkc']").text[:13]
             self.browser.quit()
-            if (error_code == "Ошибка данных"):
+            if error_code == "Ошибка данных":
                 debug_print("!-----Incorrect password-----!", "red")
-                return 1
+                return Answer.incorrect_password
             else:
                 debug_print("!-----Origin Error-----!", "red")
-                return 2
+                return Answer.origin_error
         except Exception:
             try:
                 captcha = self.browser.find_element_by_id("form-error-google-recaptcha-missing").click()
-                if (captcha is None):
+                if captcha is None:
                     self.browser.quit()
                     debug_print("!-----CAPTCHA Error----!", "red")
-                    return 3
+                    return Answer.captcha
             except Exception:
                 debug_print(self.email + " - Authorization successful " + str(time.time() - self.t), "green")
-                return 0
+                return Answer.success
 
     def get_games(self):
         url = "https://www.origin.com/rus/ru-ru/game-library"

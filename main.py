@@ -1,6 +1,6 @@
 from Parser import Parser
 # from VkCheck import VK_Checker
-from OriginChecker import Origin_Checker
+from OriginChecker import Origin_Checker, Answer
 from termcolor import cprint
 from multiprocessing import Pool
 import multiprocessing
@@ -28,9 +28,9 @@ def th(i):
     cprint("Check " + login, "magenta")
     c = Origin_Checker(login, password, "Firefox")
     code = c.auth_origin()
-    if (code == 0):
+    if code == Answer.success:
         c.get_games()
-        with open("base_check.txt", 'a') as file:
+        with open("./base_check.txt", 'a') as file:
             file.write(f"{login} {password} {c.game_list}" + '\n')
 
 
