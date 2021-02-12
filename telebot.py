@@ -1,10 +1,9 @@
-from aiogram.types import ReplyKeyboardRemove, ReplyKeyboardMarkup, KeyboardButton
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.dispatcher import Dispatcher
-from aiogram.types import InputFile, ChatActions
+from aiogram.types import ChatActions
 from aiogram.utils import executor
 from aiogram import Bot, types
 import configparser
-import io
 
 
 class Origin_Bot:
@@ -36,7 +35,7 @@ class Origin_Bot:
                 await self.bot.send_message(msg.from_user.id, self.answer_file)
             else:
                 scr = 'Path' + str(msg.from_user.id)
-                with open(src, 'w') as new_file:
+                with open(scr, 'w') as new_file:
                     new_file.write(msg.text)
                 '''
                 await check(msg.from_user.id, scr)
@@ -52,7 +51,6 @@ class Origin_Bot:
             '''
             await check(msg.from_user.id, scr)
             '''
-
 
         executor.start_polling(self.dp)
 
@@ -76,14 +74,11 @@ class Origin_Bot:
 
     @staticmethod
     async def check(self, user_id, src):
-        await self.bot.send_message(msg.from_user.id, "Ожидайте ваш запрос обрабатывается")
+        await self.bot.send_message(user_id, "Ожидайте ваш запрос обрабатывается")
         '''
         parserLog(src) проверка наличия данных об аккаутнах
         if (наличие данных is True):
-            
-            Origin_checker состоит из объектов класса Checker в ветке LogIn-Origin
-
-            if (Origin_checker() == 0) возвращает 0 если успешно 
+            if (Origin_checker() == 0) возвращает 0 если успешно
                 await self.send_file(msg.from_user.id) отправляет пользователю файл с данными аккаунтов
             elif (Origin_checker() == 1):
                 ...

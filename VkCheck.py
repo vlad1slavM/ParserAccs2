@@ -19,6 +19,7 @@ class VK_Checker:
             return 1
         self.browser.get("https://vk.com/login")
         debug_print("Url get - OK", "green")
+        return 0
 
     def auth(self, login, password):
         self.browser.find_element_by_id("email").send_keys(login)
@@ -37,6 +38,9 @@ class VK_Checker:
 
 
 colorama.init()
+
+'''
 login, password = "", ""
 vk = VK_Checker()
 vk.auth(login, password)
+'''
