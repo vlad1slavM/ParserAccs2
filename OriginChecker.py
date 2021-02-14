@@ -6,6 +6,7 @@ import colorama
 import time
 import enum
 
+
 def debug_print(message, color):
     debug = False
     if debug is True:

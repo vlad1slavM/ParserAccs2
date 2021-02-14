@@ -3,10 +3,12 @@ from aiogram.dispatcher import Dispatcher
 from aiogram.types import ChatActions
 from aiogram.utils import executor
 from aiogram import Bot, types
+from MainChecker import MultiprocessChecker as MC
+from BaseParser import Parser
 import configparser
 
 
-class Origin_Bot:
+class Telegram_Bot:
     def __init__(self):
         self.read_config(self)
         self.bot = Bot(token=self.token)
@@ -34,23 +36,19 @@ class Origin_Bot:
             elif (msg.text == "Загрузить базу из файла"):
                 await self.bot.send_message(msg.from_user.id, self.answer_file)
             else:
-                scr = 'Path' + str(msg.from_user.id)
+                scr = 'Base_' + str(msg.from_user.id) + ".txt"
                 with open(scr, 'w') as new_file:
                     new_file.write(msg.text)
-                '''
-                await check(msg.from_user.id, scr)
-                '''
+                await self.check(self, msg.from_user.id, scr, "Origin")  # доработать
 
         @self.dp.message_handler(content_types=['document'])
         async def logic_file(msg: types.Message):
             file_info = await self.bot.get_file(msg.document.file_id)
             downloaded_file = await self.bot.download_file(file_info.file_path)
-            src = 'D:\\Python\\Origin parser\\' + str(msg.document.file_id)
+            src = str(msg.document.file_id)
             with open(src, 'wb') as new_file:
                 new_file.write(downloaded_file.read())
-            '''
-            await check(msg.from_user.id, scr)
-            '''
+            await self.check(msg.from_user.id, scr, "Origin")  # доработать
 
         executor.start_polling(self.dp)
 
@@ -73,20 +71,21 @@ class Origin_Bot:
         f.close()
 
     @staticmethod
-    async def check(self, user_id, src):
+    async def check(self, user_id, src, type_base):
         await self.bot.send_message(user_id, "Ожидайте ваш запрос обрабатывается")
-        '''
-        parserLog(src) проверка наличия данных об аккаутнах
-        if (наличие данных is True):
-            if (Origin_checker() == 0) возвращает 0 если успешно
-                await self.send_file(msg.from_user.id) отправляет пользователю файл с данными аккаунтов
-            elif (Origin_checker() == 1):
-                ...
+        base = Parser()
+        code = 0
+        base.pars(src)  # проверка наличия данных об аккаутнах
+        if (code == 0):
+            checker = MC(base, type_base)
+            code = checker.multicheck()
+            if (code == 0):
+                await self.send_file(msg.from_user.id)  # отправляет пользователю файл с данными аккаунтов
             else:
-                ...
+                await self.bot.send_message(msg.from_user.id, "В базе нет активных аккаунтов")
         else:
-            await self.bot.send_message(msg.from_user.id, self.answer_error)'''
+            await self.bot.send_message(msg.from_user.id, self.answer_error)
 
 
-bot = Origin_Bot()
+bot = Telegram_Bot()
 bot.start()

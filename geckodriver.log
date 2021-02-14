@@ -179,3 +179,69 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1613132004292	Marionette	ERROR	[2147483649] No reply from Marionette:Register
 1613132009807	Marionette	INFO	Stopped listening on port 63437
 [Parent 16704, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+1613307060115	geckodriver	INFO	Listening on 127.0.0.1:51757
+1613307063188	mozrunner::runner	INFO	Running command: "C:\\P1613307063269	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "C:*** You are running in headless mode.
+[GFX1]: Potential driver version mismatch ignored due to mis[GFX1]: Potential driver version mismatch ig[GFX1]: Potential driver version mismatch ignored due to missing DLLs igd10umd32 v= and igd10iumd32 v=
+[GFX1]: Potential driver version mismatch ignored due to missing DLLs igd10umd32 v= and igd10iumd32 v=
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 775))
+console.error: Region.jsm: "Failed to fetch region1613307085635	Marionette	WARN	TLS certificate errors will be ignored for this session
+1613307086526	Marionette	ERROR	[15] No reply from Marionette:Register
+1613307087608	Marionet1613307112169	Marionette	INFO	Listening on port 51784
+[GFX1]: Potential driver version mismatch ignored due to missing DLLs igd10umd32 v= and igd10iumd32 v=
+1613307113039	Marionette	WARN	TLS certificate errors will be ignored for this session
+1613307115008	Marionette	ERROR	[15] No reply from Marionette:Register
+1613307116182	Mario
+###!!! [Child][RunMessage] Error: Channel closing: too lat1613307144778	Marionette	INFO	Stopped listening on port 51783
+[Parent 3772, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/proc1613307148002	Marionette	INFO	Stopped listening on port 51792
+[Parent 5632, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+ettings: 
+  Message: Error: Shutdown, aborting read-only worker requests.
+  Stack:
+    _abortCancelableRequests@resource://services-settings/RemoteSettingsWorker.jsm:143:19
+@resource://services-settings/RemoteSettingsWorker.jsm:219:28
+trigger@resource://gre/modules/AsyncShutdown.jsm:745:23
+_wait@resource://gre/modules/AsyncShutdown.jsm:897:15
+wait@resource://gre/modules/AsyncShutdown.jsm:878:34
+observe@resource://gre/modules/AsyncShutdown.jsm:555:10
+
+console.warn: services.settings: security-state/onecrl sync interrupted by shutdown
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: IndexedDB: main/ms-language-packs getLastModified() IndexedDB:  execute() The application is shutting down
+  Stack:
+    IndexedDBError@resource://services-settings/IDBHelpers.jsm:22:15
+ShutdownError@resource://services-settings/IDBHelpers.jsm:32:5
+executeIDB@resource://services-settings/Database.jsm:344:13
+getLastModified@resource://services-settings/Database.jsm:166:13
+hasLocalData@resource://services-settings/Utils.jsm:102:39
+_client@resource://services-settings/remote-settings.js:136:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:302:28
+observe@resource://gre/modules/AsyncShutdown.jsm:573:16
+
+1613311136523	geckodriver	INFO	Listening on 127.0.0.1:52409
+1613311139563	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\root\\AppData\\Local\\Temp\\rust_mozprofile3ogfGQ"
+*** You are running in headless mode.
+[GFX1]: Potential driver version mismatch ignored due to missing DLLs igd10umd32 v= and igd10iumd32 v=
+[GFX1]: Potential driver version mismatch ignored due to missing DLLs igd10umd32 v= and igd10iumd32 v=
+[GFX1]: Potential driver version mismatch ignored due to missing DLLs igd10umd32 v= and igd10iumd32 v=
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+[GFX1]: Potential driver version mismatch ignored due to missing DLLs igd10umd32 v= and igd10iumd32 v=
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1613311156030	Marionette	INFO	Listening on port 52426
+1613311156676	Marionette	WARN	TLS certificate errors will be ignored for this session
+1613311156857	Marionette	ERROR	[15] No reply from Marionette:Register
+1613311157252	Marionette	ERROR	[2147483649] No reply from Marionette:Register
+1613311172395	Marionette	INFO	Stopped listening on port 52426
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+nts'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: https://www.origin.com/origin.24889e494e815c3a.min.js, line 5: Error: httpRequest ERROR: https://api2.origin.com/atom/users/1005934150550/games/lastplayed 404 (Not Found)
+1613311186988	Marionette	INFO	Stopped listening on port 52424
+[Parent 9972, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
