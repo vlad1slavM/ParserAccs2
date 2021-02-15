@@ -20,7 +20,6 @@ class MultiprocessChecker:
         for i in range(0, i_count):
             logins_check = logins[(cores_count * i):(cores_count * (i + 1))]
             self.start(logins_check)
-            break  # удалить
         if (self.empty is True):
             return 1
         else:
